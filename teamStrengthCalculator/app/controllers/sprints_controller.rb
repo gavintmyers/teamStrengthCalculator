@@ -19,6 +19,7 @@ class SprintsController < ApplicationController
 
   # GET /sprints/1/edit
   def edit
+
   end
 
   # POST /sprints
@@ -41,7 +42,8 @@ class SprintsController < ApplicationController
   # PATCH/PUT /sprints/1.json
   def update
     respond_to do |format|
-      if @sprint.update(sprint_params)
+      # if @sprint.update(sprint_params)
+        if @sprint.update(sprint_params)
         format.html { redirect_to @sprint, notice: 'Sprint was successfully updated.' }
         format.json { render :show, status: :ok, location: @sprint }
       else
@@ -67,8 +69,12 @@ class SprintsController < ApplicationController
       @sprint = Sprint.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # # Never trust parameters from the scary internet, only allow the white list through.
+    # def sprint_params
+    #   params.fetch(:sprint, {})
+    # end
+
     def sprint_params
-      params.fetch(:sprint, {})
+      params.require(:sprint).permit(:start_date, :end_date, :iteration_length, :part_time_multiplier)
     end
 end

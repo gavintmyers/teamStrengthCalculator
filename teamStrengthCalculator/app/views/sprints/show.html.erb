@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+
+<table>
+  <thead>
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Iteration Length</th>
+      <th>PTM</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+      <tr>
+        <td><%= @sprint.start_date %></td>
+        <td><%= @sprint.end_date %></td>
+        <td><%= @sprint.iteration_length %></td>
+        <td><%= @sprint.part_time_multiplier %></td>
+      </tr>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_sprint_path(@sprint) %> |
 <%= link_to 'Back', sprints_path %>
