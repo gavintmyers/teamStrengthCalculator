@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307184249) do
+ActiveRecord::Schema.define(version: 20160307211821) do
+
+  create_table "developers", force: :cascade do |t|
+    t.text     "name"
+    t.text     "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sprints", force: :cascade do |t|
     t.date     "start_date"
