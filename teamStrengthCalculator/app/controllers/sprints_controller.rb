@@ -19,7 +19,6 @@ class SprintsController < ApplicationController
 
   # GET /sprints/1/edit
   def edit
-
   end
 
   # POST /sprints
