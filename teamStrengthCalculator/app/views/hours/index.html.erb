@@ -21,9 +21,9 @@
       <tbody>
         <% @hours.each do |hour| %>
           <tr>
-            <td><%= hour.client %></td>
-            <td><%= hour.developer %></td>
-            <td><%= hour.sprint %></td>
+            <td><%= hour.client_id %></td>
+            <td><%= hour.developer_id %></td>
+            <td><%= hour.sprint_id %></td>
             <td><%= hour.number_of_hours %></td>
             <td><%= link_to 'Show', hour %></td>
             <td><%= link_to 'Edit', edit_hour_path(hour) %></td>

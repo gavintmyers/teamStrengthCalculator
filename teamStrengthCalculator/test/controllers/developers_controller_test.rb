@@ -18,7 +18,7 @@ class DevelopersControllerTest < ActionController::TestCase
 
   test "should create developer" do
     assert_difference('Developer.count') do
-      post :create, developer: { name: @developer.name, type: @developer.type }
+      post :create, developer: { name: @developer.name, dev_type: @developer.dev_type }
     end
 
     assert_redirected_to developer_path(assigns(:developer))
@@ -35,7 +35,7 @@ class DevelopersControllerTest < ActionController::TestCase
   end
 
   test "should update developer" do
-    patch :update, id: @developer, developer: { name: @developer.name, type: @developer.type }
+    patch :update, id: @developer, developer: { name: @developer.name, dev_type: @developer.dev_type }
     assert_redirected_to developer_path(assigns(:developer))
   end
 

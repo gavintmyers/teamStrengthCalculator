@@ -71,7 +71,7 @@ class SprintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sprint_params
-      params.require(:sprint).permit(:start_date, :end_date, :iteration_length, :part_time_multiplier, hours_attributes: [ :client, :developer, :number_of_hours ])
+      params.require(:sprint).permit(:start_date, :end_date, :iteration_length, :part_time_multiplier, hours_attributes: [ :client_id, :developer_id, :number_of_hours])
     end
 
 

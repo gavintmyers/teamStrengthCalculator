@@ -2,8 +2,8 @@
 
 one:
   name: MyText
-  type: MyText
+  dev_type: MyText
 
 two:
   name: MyText
-  type: MyText
+  dev_type: MyText
