@@ -15,6 +15,7 @@ class SprintsController < ApplicationController
   # GET /sprints/new
   def new
     @sprint = Sprint.new
+    3.times { @sprint.hours.build }
   end
 
   # GET /sprints/1/edit
@@ -68,12 +69,11 @@ class SprintsController < ApplicationController
       @sprint = Sprint.find(params[:id])
     end
 
-    # # Never trust parameters from the scary internet, only allow the white list through.
-    # def sprint_params
-    #   params.fetch(:sprint, {})
-    # end
-
+    # Never trust parameters from the scary internet, only allow the white list through.
     def sprint_params
-      params.require(:sprint).permit(:start_date, :end_date, :iteration_length, :part_time_multiplier)
+      params.require(:sprint).permit(:start_date, :end_date, :iteration_length, :part_time_multiplier, hours_attributes: [ :client, :developer, :number_of_hours ])
     end
+
+
+
 end
