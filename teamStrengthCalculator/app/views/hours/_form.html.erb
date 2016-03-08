@@ -1,0 +1,33 @@
+<%= form_for(@hour) do |f| %>
+  <% if @hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
+
+      <ul>
+      <% @hour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :client %><br>
+    <%= f.number_field :client %>
+  </div>
+  <div class="field">
+    <%= f.label :developer %><br>
+    <%= f.number_field :developer %>
+  </div>
+  <div class="field">
+    <%= f.label :sprint %><br>
+    <%= f.number_field :sprint %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_hours %><br>
+    <%= f.number_field :number_of_hours %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
