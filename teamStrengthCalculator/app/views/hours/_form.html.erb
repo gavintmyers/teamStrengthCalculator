@@ -11,23 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :client %><br>
-    <%= f.number_field :client %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6-up col-md-offset-3-up">
+      <div class="field">
+        <div class="row">
+         <%= f.label :client %>
+          <%= f.number_field :client, class: "form-control"%>
+        </div>
+        <div class="row">
+         <%= f.label :developer %>
+         <%= f.number_field :developer, class: "form-control" %>
+        </div>
+        <div class="row">
+          <%= f.label :sprint %>
+          <%= f.number_field :sprint, class: "form-control" %>
+        </div>
+        <div class="row">
+          <%= f.label :number_of_hours %>
+          <%= f.number_field :number_of_hours, class: "form-control" %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit :class => 'btn btn-success'%>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :developer %><br>
-    <%= f.number_field :developer %>
-  </div>
-  <div class="field">
-    <%= f.label :sprint %><br>
-    <%= f.number_field :sprint %>
-  </div>
-  <div class="field">
-    <%= f.label :number_of_hours %><br>
-    <%= f.number_field :number_of_hours %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
