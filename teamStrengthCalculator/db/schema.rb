@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307211821) do
+ActiveRecord::Schema.define(version: 20160307213425) do
 
   create_table "developers", force: :cascade do |t|
     t.text     "name"
-    t.text     "type"
+    t.text     "dev_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

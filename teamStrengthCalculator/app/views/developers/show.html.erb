@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @developer.name %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @developer.type %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+    <tr>
+  <thead>
+  <tbody>
+    <tr>
+      <td><%= @developer.name %></td>
+      <td><%= @developer.dev_type %></td>
+      <td><%= link_to 'Show', @developer %></td>
+      <td><%= link_to 'Edit', edit_developer_path(@developer) %></td>
+      <td><%= link_to 'Destroy', @developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+<table>
 
 <%= link_to 'Edit', edit_developer_path(@developer) %> |
 <%= link_to 'Back', developers_path %>
