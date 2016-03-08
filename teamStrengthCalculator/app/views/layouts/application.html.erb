@@ -10,14 +10,19 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        Header
+        <div class="navbar-brand">Team Strength Calculator</div>
+        <button class="navbar-toggle hidden-sm-up" type="button" data-toggle="collapse" data-target="#navi">
+        &#9776;
+        </button>
       </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Sprints', root_path %></li>
-        <li><%= link_to 'Developers', '#' %></li>
-        <li><%= link_to 'Clients', root_path %></li>
-        <li><%= link_to 'Hours', root_path %></li>
-      </ul>
+      <div class="collapse navbar-collapse" id="navi">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Sprints', sprints_path %></li>
+          <li><%= link_to 'Developers', developers_path %></li>
+          <li><%= link_to 'Clients', root_path %></li>
+          <li><%= link_to 'Hours', root_path %></li>
+        </ul>
+      </div>
     <div>
   </nav>
 <%= yield %>
