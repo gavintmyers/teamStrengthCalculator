@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-<div class="fluid-row">
-  <div class="span6 offset3">
+<div class="container">
+  <div class="row">
+  <div class="col-md-8 col-md-offset-2">
     <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= f.label :dev_type %><br>
-      <%= f.text_field :dev_type, class: "form-control" %>
+        <%= f.select :dev_type, [['Full Time','Full Time'], ['Part Time','Part Time'], ['Special Guest', 'Special Guest']], {class: 'form-control'}%>
     </div>
     <div class="actions">
       <%= f.submit :class => 'btn btn-success'%>
