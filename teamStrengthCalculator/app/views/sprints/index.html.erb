@@ -1,36 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Sprints</h1>
+<div class="container">
+  <div class="row">
+    <h1>Sprints</h1>
 
-<table class="table table-striped">
-  <thead class="thead-default">
-    <tr>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Iteration Length</th>
-      <th>PTM</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="table table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Iteration Length</th>
+          <th>PTM</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
 
-  <tbody>
-    <% @sprints.each do |sprint| %>
-      <tr>
-        <td><%= sprint.start_date %></td>
-        <td><%= sprint.end_date %></td>
-        <td><%= sprint.iteration_length %></td>
-        <td><%= sprint.part_time_multiplier %></td>
-        <td><%= link_to 'Show', sprint %></td>
-        <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
-        <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @sprints.each do |sprint| %>
+          <tr>
+            <td><%= sprint.start_date %></td>
+            <td><%= sprint.end_date %></td>
+            <td><%= sprint.iteration_length %></td>
+            <td><%= sprint.part_time_multiplier %></td>
+            <td><%= link_to 'Show', sprint %></td>
+            <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
+            <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Sprint', new_sprint_path %>
+    <%= link_to 'New Sprint', new_sprint_path, { :style=>"color: #FFF", :class=>"btn btn-primary"}  %>
+
+  </div>
+</div>
