@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: 1
+  developer: 1
+  sprint: 1
+  number_of_hours: 1
+
+two:
+  client: 1
+  developer: 1
+  sprint: 1
+  number_of_hours: 1
