@@ -1,2 +1,11 @@
 class Sprint < ActiveRecord::Base
+	validate :start_before_end
+	validates :iteration_length, presence: true
+	validates :part_time_multiplier, presence: true
+
+	def start_before_end
+		if self.start_date >= self.end_date
+      		errors.add(:end_date, "must be after Start date")
+    	end
+	end
 end
