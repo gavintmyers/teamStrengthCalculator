@@ -1,5 +1,7 @@
 class SprintsController < ApplicationController
   before_action :set_sprint, only: [:show, :edit, :update, :destroy]
+  before_filter :prepare_clients
+
 
   # GET /sprints
   # GET /sprints.json
@@ -26,7 +28,6 @@ class SprintsController < ApplicationController
   # POST /sprints.json
   def create
     @sprint = Sprint.new(sprint_params)
-    # @clients = Client.all
 
     respond_to do |format|
       if @sprint.save
@@ -73,6 +74,10 @@ class SprintsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def sprint_params
       params.require(:sprint).permit(:start_date, :end_date, :iteration_length, :part_time_multiplier, hours_attributes: [ :client_id, :developer_id, :number_of_hours])
+    end
+
+    def prepare_clients
+      @clients = Client.all
     end
 
 
