@@ -26,6 +26,7 @@ class SprintsController < ApplicationController
   # POST /sprints.json
   def create
     @sprint = Sprint.new(sprint_params)
+    # @clients = Client.all
 
     respond_to do |format|
       if @sprint.save
