@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'validations' do
+    let(:client) { FactoryGirl.create(:client, name: "Yuri Gagarin") }
+
+    it 'should allow for a named client' do
+      expect(client).to be_valid
+    end
+  end
 end

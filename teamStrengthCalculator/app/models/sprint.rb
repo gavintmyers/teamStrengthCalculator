@@ -12,7 +12,7 @@ class Sprint < ActiveRecord::Base
 
 	def start_before_end
 		if self.start_date >= self.end_date
-      		errors.add(:end_date, "must be after Start date")
-    	end
+      errors.add(:end_date, "must be after Start date")
+    end
 	end
 end
