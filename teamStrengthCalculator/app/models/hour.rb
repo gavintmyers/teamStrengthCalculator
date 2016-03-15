@@ -5,7 +5,6 @@ class Hour < ActiveRecord::Base
 	validates :sprint_id, presence: true
 
   belongs_to :sprint
-
-  has_one :client
-  has_one :developer
+  belongs_to :client
+  belongs_to :developer
 end
