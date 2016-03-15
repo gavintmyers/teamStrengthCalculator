@@ -1,26 +1,72 @@
 <p id="notice"><%= notice %></p>
 
-
-<table>
-  <thead>
+<table class="table table-striped">
+  <tbody>
     <tr>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Iteration Length</th>
-      <th>PTM</th>
+      <td> <b> Start Date </b> </td>
+      <td><%= @sprint.start_date %></td>
     </tr>
-  </thead>
+    <tr>
+      <td> <b> End Date </b> </td>
+      <td><%= @sprint.end_date %></td>
+    </tr>
+    <tr>
+      <td> <b> Iteration Length </b> </td>
+      <td><%= @sprint.iteration_length %></td>
+    </tr>
+    <tr>
+      <td> <b> Part Time Multiplier </b> </td>
+      <td><%= @sprint.part_time_multiplier %></td>
+    </tr>
+    <% if @part_time_stats[0][1].present? %>
+      <tr>
+        <td> <b> # of Part Time Developers for this Sprint </b> </td>
+        <td><%= @part_time_stats[0][0]%></td>
+      </tr>
+      <tr>
+        <td> <b> # of Part Time Hours </b> </td>
+        <td><%= @part_time_stats[0][1] %></td>
+      </tr>
+      <tr class="info">
+        <td> <b> Part Time Team Strength </b> </td>
+        <td><%= @part_time_stats[0][1]/(@part_time_stats[0][0] *  10) %>%</td>
+      </tr>
+    <% else %>
+      <tr class="danger">
+        <td> <b> # of Part Time Developers for this Sprint </b> </td>
+        <td><%= @part_time_stats[0][0]%></td>
+      </tr>
+    <% end %>
 
+    <% if @full_time_stats[0][1].present? %>
+    <tr>
+      <td> <b> # of Full Time Developers for this Sprint </b> </td>
+      <td><%= @full_time_stats[0][0] %></td>
+    </tr>
+      <tr>
+        <td> <b> # of Full Time Hours for this Sprint </b> </td>
+        <td><%= @full_time_stats[0][1] %></td>
+      </tr>
+      <tr class="info">
+        <td> <b> Full Time Team Strength </b> </td>
+        <td><%= @full_time_stats[0][1]/(@full_time_stats[0][0] *  @sprint.iteration_length) %>%</td>
+      </tr>
+    <% else %>
+      <tr class="danger">
+        <td> <b> # of Full Time Developers for this Sprint </b> </td>
+        <td><%= @full_time_stats[0][0] %></td>
+      </tr>
+    <% end %>
+
+    <% @clients.each do |client| %>
+      <tr> <%= client.name %> </tr>
+    <% end %>
 
   <tbody>
-      <tr>
-        <td><%= @sprint.start_date %></td>
-        <td><%= @sprint.end_date %></td>
-        <td><%= @sprint.iteration_length %></td>
-        <td><%= @sprint.part_time_multiplier %></td>
-      </tr>
-  </tbody>
 </table>
+
+
+
 
 <%= link_to 'Edit', edit_sprint_path(@sprint) %> |
 <%= link_to 'Back', sprints_path %>

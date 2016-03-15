@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
   validates :name, presence: true
-  
-  belongs_to :hour
+
+  has_many :hours
 end

@@ -11,6 +11,9 @@ class SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
+    @part_time_stats = Sprint.joins(:hours).joins('INNER JOIN Developers ON Developers.id = Hours.developer_id').where("sprints.id = #{params[:id]} AND Developers.dev_type = 'part_time'").pluck("COUNT(Developers.name), SUM(Hours.number_of_hours)")
+    @full_time_stats = Sprint.joins(:hours).joins('INNER JOIN Developers ON Developers.id = Hours.developer_id').where("sprints.id = #{params[:id]} AND Developers.dev_type='full_time'").pluck("COUNT(Developers.name), SUM(Hours.number_of_hours)")
+    @clients = Client.joins('INNER JOIN Hours ON Hours.client_id = Clients.id').where('Hours.sprint_id = 5').group("name").pluck(:name)
   end
 
   # GET /sprints/new
@@ -79,6 +82,10 @@ class SprintsController < ApplicationController
 
     def prepare_clients
       @clients = Client.all
+    end
+
+    def calculate_strength hours, devs
+      (hours)/(devs * 10)
     end
 
 end
