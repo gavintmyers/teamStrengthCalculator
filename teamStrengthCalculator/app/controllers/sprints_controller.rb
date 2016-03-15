@@ -1,6 +1,5 @@
 class SprintsController < ApplicationController
   before_action :set_sprint, only: [:show, :edit, :update, :destroy]
-  before_filter :prepare_clients
 
 
   # GET /sprints
@@ -18,10 +17,12 @@ class SprintsController < ApplicationController
   def new
     @sprint = Sprint.new
     3.times { @sprint.hours.build }
+    prepare_clients
   end
 
   # GET /sprints/1/edit
   def edit
+    prepare_clients
   end
 
   # POST /sprints
@@ -79,7 +80,5 @@ class SprintsController < ApplicationController
     def prepare_clients
       @clients = Client.all
     end
-
-
 
 end

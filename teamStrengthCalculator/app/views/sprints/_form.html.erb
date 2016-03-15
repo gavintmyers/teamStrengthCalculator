@@ -31,15 +31,22 @@
           <%= f.label :part_time_multiplier %>
           <%= f.number_field :part_time_multiplier, :step=>"0.01", class: "form-control" %>
         </div>
-
       </div>
-      <div class="field">
-
+      <div class="row">
+        <div class="col-md-4">
+          <table class="table table-striped">
+            <% @clients.each do |client| %>
+              <tr>
+                <td> <h3> <%= client.name %> </h3> <td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="col-md-8">
           <%= f.fields_for :hours do |hour| %>
             <div class="panel panel-default panel-success">
               <div class="panel-heading"></div>
               <div class="panel-body">
-
                 <div class="row">
                   <%= hour.label :client %>
                   <%= hour.number_field :client, class: "form-control" %>
@@ -55,10 +62,8 @@
               </div>
             </div>
           <% end %>
-
+        </div>
       </div>
-      <div class="actions">
-        <%= f.submit :class => 'btn btn-success'%>
       </div>
     </div>
   </div>
