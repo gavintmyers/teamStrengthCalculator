@@ -5,6 +5,8 @@ class Sprint < ActiveRecord::Base
 	validates :part_time_multiplier, presence: true
 
 	has_many :hours
+	has_and_belongs_to_many :clients
+	has_and_belongs_to_many :developers
 
 	accepts_nested_attributes_for :hours
 
