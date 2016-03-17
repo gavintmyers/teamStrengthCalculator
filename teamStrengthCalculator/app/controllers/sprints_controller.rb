@@ -29,9 +29,17 @@ class SprintsController < ApplicationController
   # POST /sprints.json
   def create
     @sprint = Sprint.new(sprint_params)
+    prepare_clients
+    prepare_developers
 
     respond_to do |format|
       if @sprint.save
+        @sprint.clients<<(@clients)
+        @sprint.developers<<(@developers)
+
+
+
+
         format.html { redirect_to @sprint, notice: 'Sprint was successfully created.' }
         format.json { render :show, status: :created, location: @sprint }
       else
@@ -81,4 +89,7 @@ class SprintsController < ApplicationController
       @clients = Client.all
     end
 
+    def prepare_developers
+      @developers = Developer.all
+    end
 end
