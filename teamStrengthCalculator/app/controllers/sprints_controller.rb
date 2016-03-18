@@ -37,9 +37,6 @@ class SprintsController < ApplicationController
         @sprint.clients<<(@clients)
         @sprint.developers<<(@developers)
 
-
-
-
         format.html { redirect_to @sprint, notice: 'Sprint was successfully created.' }
         format.json { render :show, status: :created, location: @sprint }
       else
